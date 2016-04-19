@@ -1,10 +1,14 @@
 {
-  "name": "TemplateProject",
+  "name": "rop-module-template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "test": "mocha"
+    "test": "mocha",
+    "predoc": "rm -r docs",
+    "doc": "jsdoc --destination docs -c conf/jsdoc-conf.json -r",
+    "precover": "rm -r coverage",
+    "cover": "istanbul cover _mocha"
   },
   "dependencies": {
     "express": "~4.13.1",

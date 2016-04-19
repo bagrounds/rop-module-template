@@ -6,3 +6,8 @@ node_modules
 
 # we compile stylus into these
 *.css
+
+coverage
+
+docs
+
