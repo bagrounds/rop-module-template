@@ -1,0 +1,8 @@
+# IntelliJ project files are developer specific
+.idea
+
+# nodejs modules should be installed locally with npm install
+node_modules
+
+# we compile stylus into these
+*.css
