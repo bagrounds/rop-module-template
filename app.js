@@ -1,51 +1,41 @@
-#!/usr/bin/env node
-
 /**
- * Express server
+ * Set up Express application
+ *
+ * Purpose:
+ * - initialize and configure Express app
+ * - import and assign routing modules
+ *
  * @module app
  */
 (function(){
-
-  // npm packages
-  var http = require('http');
+  "use strict";
+  /*****************************************************************************
+   * imports
+   */
   var express = require('express');
-  var stylus = require('stylus');
+  var request = require('request');
 
-  var module = require('./lib/module');
+  var serve = require('./node_modules/serve-express-router/app');
 
-  var PORT = (process.env.PORT || '3000');
+  var pkg = require('./package.json');
+  var C = require('./conf/values');
+  var router = require('./lib/router');
 
-  var app = express();
-  var router = express.Router();
+  /***************************************************************************
+   * request config and launch server
+   */
 
-  var server = http.createServer(app);
+  var configUrl = C.CONFIG_URL + '?name=' + pkg.name;
 
-  app.set('port', PORT);
-  app.set('view engine', 'jade');
+  request(configUrl,function(error,response, config){
 
-  app.use(stylus.middleware({
-    src: __dirname,
-    dest: __dirname + '/public',
-    debug: true,
-    force: true
-  }));
+    error && console.log(error);
 
-  app.use('/', express.static(__dirname + '/public'));
+    console.log('config: ' + config);
 
-  router.get('/', function(request, response) {
-    response.render('index', { title: 'Express' });
+    config = JSON.parse(config);
+
+    serve(config.port,router);
   });
-
-  app.use(router);
-
-  server.on('listening', function onListening(){
-    console.log(server.address());
-  });
-
-  server.on('request', function onRequest(request){
-    console.log('[' + request.ips + '] -> ' + request.method + ' ' + request.url);
-  });
-
-  server.listen(PORT);
 
 })();

@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node app.js",
-    "test": "mocha",
+    "start": "node bin/www",
+    "test": "./node_modules/mocha/bin/_mocha",
     "predoc": "rm -r docs",
     "doc": "jsdoc --destination docs -c conf/jsdoc-conf.json -r",
     "precover": "rm -r coverage",
@@ -12,8 +12,9 @@
   },
   "dependencies": {
     "express": "~4.13.1",
-    "jade": "~1.11.0",
-    "stylus": "0.42.3"
+    "portfinder": "^1.0.3",
+    "request": "^2.72.0",
+    "serve-express-router": "git+https://github.com/bagrounds/serve-express-router.git"
   },
   "devDependencies": {
     "chai": "^3.5.0",
