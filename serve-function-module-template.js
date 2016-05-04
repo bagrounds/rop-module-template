@@ -1,7 +1,7 @@
 /**
  * Template for a function module that can be served by serve-function.
  *
- * @module aFunction
+ * @module serve-function-module-template
  */
 (function(){
   "use strict";
@@ -10,18 +10,20 @@
    * imports
    */
   var typeCheck = require('type-check').typeCheck;
+  var helperModule = require('./lib/helper-module');
 
   var V = require('./conf/values');
 
   /*****************************************************************************
    * exports
    */
-  module.exports = aFunction;
+  module.exports = serveFunctionModuleTemplate;
 
   /**
-   * This comment describes the callback function accepted by aFunction.
+   * This comment describes the callback function accepted by
+   * serveFunctionModuleTemplate.
    *
-   * @callback aFunctionCallback
+   * @callback callback
    * @param {Error} error describes any errors that may have occurred
    * @param {String|Number} result
    */
@@ -31,17 +33,18 @@
    * module. The function should accept an options object containing any
    * function parameters, and a callback to handle the results;
    *
+   * @alias module:serve-function-module-template
    * @param {Object} options contains all function parameters
    * @param {String|Number} options.x anything that can be added
    * @param {String|Number} options.y anything that can be added
    * @param {String|Number} options.z anything that can be added
-   * @param {aFunctionCallback} callback handles results
+   * @param {callback} callback handles results
    */
-  function aFunction(options, callback){
+  function serveFunctionModuleTemplate(options, callback){
 
     var error = validateOptions(options);
 
-    var result = options.x + options.y + options.z;
+    var result = helperModule.add([options.x, options.y, options.z]);
 
     callback(error, result);
   }

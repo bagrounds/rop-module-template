@@ -6,7 +6,7 @@
 
     var ArgumentParser = require('argparse').ArgumentParser;
 
-    var aFunction = require('../aFunction');
+    var aFunction = require('../serve-function-module-template');
 
     var pkg = require('../package');
 

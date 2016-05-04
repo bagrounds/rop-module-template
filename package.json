@@ -1,14 +1,14 @@
 {
-  "name": "rop-module-template",
-  "version": "0.2.0",
+  "name": "serve-function-module-template",
+  "version": "0.2.2",
   "private": true,
   "scripts": {
     "start": "node bin/aFunction",
     "test": "_mocha",
-    "predoc": "rm -r docs",
-    "doc": "jsdoc --destination docs -c conf/jsdoc-conf.json -r",
-    "precover": "rm -r coverage",
-    "cover": "istanbul cover _mocha"
+    "predocument": "rm -r docs",
+    "document": "jsdoc --destination docs -c conf/jsdoc-conf.json -r",
+    "precoverage": "rm -r coverage",
+    "coverage": "istanbul cover _mocha"
   },
   "dependencies": {
     "argparse": "^1.0.7",

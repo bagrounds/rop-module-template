@@ -1,5 +1,5 @@
 /**
- * Tests for aFunction
+ * Tests for serve-function-module-template
  */
 ;(function () {
     /* global describe, it, before */
@@ -10,12 +10,12 @@
      */
     var expect = require('chai').expect;
 
-    var aFunction = require('../aFunction');
+    var aFunction = require('../serve-function-module-template');
 
     /***************************************************************************
      * Tests
      */
-    describe('aFunction', function () {
+    describe('serve-function-module-template', function () {
 
         var validOptions;
         var invalidOptions;
@@ -59,10 +59,10 @@
 
         it('should return the sum of its inputs', function (done) {
 
-            var expectedResult = invalidOptions.x + invalidOptions.y +
-                invalidOptions.z;
+            var expectedResult = validOptions.x + validOptions.y +
+                validOptions.z;
 
-            aFunction(invalidOptions, function (error, result) {
+            aFunction(validOptions, function (error, result) {
 
                 expect(result).to.equal(expectedResult);
 

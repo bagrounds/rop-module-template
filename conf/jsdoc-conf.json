@@ -1,10 +1,10 @@
 {
   "tags": {
     "allowUnknownTags": true,
-    "dictionaries": ["jsdoc","closure"]
+    "dictionaries": ["jsdoc"]
   },
   "source": {
-    "include": ["lib","test","."],
+    "include": ["lib","."],
     "exclude": ["node_modules","conf","docs","public"],
     "includePattern": ".+\\.js(doc)?$",
     "excludePattern": "(^|\\/|\\\\)_"
