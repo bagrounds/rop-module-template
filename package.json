@@ -8,7 +8,8 @@
     "predocument": "rm -r docs",
     "document": "jsdoc --destination docs -c conf/jsdoc-conf.json -r",
     "precoverage": "rm -r coverage",
-    "coverage": "istanbul cover _mocha"
+    "coverage": "istanbul cover _mocha",
+    "build": "npm run coverage && npm run document"
   },
   "dependencies": {
     "argparse": "^1.0.7",
