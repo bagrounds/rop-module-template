@@ -1,20 +1,13 @@
 /**
- * Define constant values for the project
+ * Define constant and pre-calculated values for use throughout the project.
  *
- * @module constants
+ * @module values
  */
 ;(function(){
-    "use strict";
-    /***************************************************************************
-     * imports
-     */
+    'use strict';
 
-    var C = module.exports = {};
+    var V = module.exports = {};
 
-    C.CONFIG_URL = 'http://10.4.36.44:15000/';
-
-    C.ENDPOINT = '/';
-
-    C.TEST_MESSAGE = 'this is just a test';
+    V.INVALID_INPUTS_MESSAGE = 'Invalid inputs!';
 
 })();
