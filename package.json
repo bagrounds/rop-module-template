@@ -10,6 +10,7 @@
     "document": "jsdoc --destination docs -c .jsdoc.json -r",
     "precoverage": "rm -rf coverage",
     "coverage": "istanbul cover _mocha",
+    "postcoverage": "codeclimate-test-reporter < coverage/lcov.info",
     "build": "npm run lint && npm run coverage && npm run document",
     "lint": "eslint *.js lib/**/*.js test/**/*.js"
   },
@@ -20,7 +21,6 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "codeclimate-test-reporter": "^0.3.1",
-    "coveralls": "^2.11.9",
     "eslint": "^2.9.0",
     "istanbul": "^0.4.3",
     "jsdoc": "^3.4.0",
