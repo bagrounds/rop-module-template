@@ -1,15 +1,17 @@
 {
   "name": "serve-function-module-template",
   "version": "0.2.2",
+  "main": "serve-function-module-template.js",
   "private": true,
   "scripts": {
     "start": "node bin/aFunction",
     "test": "_mocha",
-    "predocument": "rm -r docs",
-    "document": "jsdoc --destination docs -c conf/jsdoc-conf.json -r",
-    "precoverage": "rm -r coverage",
+    "predocument": "rm -rf docs",
+    "document": "jsdoc --destination docs -c .jsdoc.json -r",
+    "precoverage": "rm -rf coverage",
     "coverage": "istanbul cover _mocha",
-    "build": "npm run coverage && npm run document"
+    "build": "npm run lint && npm run coverage && npm run document",
+    "lint": "eslint *.js lib/**/*.js test/**/*.js"
   },
   "dependencies": {
     "argparse": "^1.0.7",
@@ -17,8 +19,11 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "coveralls": "^2.11.9",
+    "eslint": "^2.9.0",
     "istanbul": "^0.4.3",
     "jsdoc": "^3.4.0",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "mocha-lcov-reporter": "^1.2.0"
   }
 }

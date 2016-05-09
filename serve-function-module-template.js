@@ -4,7 +4,7 @@
  * @module serve-function-module-template
  */
 (function(){
-  "use strict";
+  'use strict';
 
   /*****************************************************************************
    * imports
@@ -12,7 +12,7 @@
   var typeCheck = require('type-check').typeCheck;
   var helperModule = require('./lib/helper-module');
 
-  var V = require('./conf/values');
+  var V = require('./lib/values');
 
   /*****************************************************************************
    * exports
