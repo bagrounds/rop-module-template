@@ -29,8 +29,8 @@ Clone the module and replace example code.
 [travis-img]: https://img.shields.io/travis/bagrounds/serve-function-module-template/master.svg
 [travis-url]: https://travis-ci.org/bagrounds/serve-function-module-template
 
-[coveralls-img]: https://coveralls.io/repos/github/bagrounds/learner/badge.svg?branch=master
-[coveralls-url]: https://coveralls.io/github/bagrounds/learner?branch=master
+[coveralls-img]: https://coveralls.io/repos/github/bagrounds/serve-function-module-template/badge.svg?branch=master
+[coveralls-url]: https://coveralls.io/github/bagrounds/serve-function-module-template?branch=master
 
 [codeclimate-img]: https://codeclimate.com/github/bagrounds/serve-function-module-template/badges/gpa.svg
 [codeclimate-url]: https://codeclimate.com/github/bagrounds/serve-function-module-template
