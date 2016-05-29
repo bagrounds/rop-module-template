@@ -3,48 +3,43 @@
  */
 ;(function () {
   /* global describe, it */
-  'use strict';
+  'use strict'
 
-  /***************************************************************************
+  /** ************************************************************************
    * Imports
    */
-  var exec = require('child_process').exec;
+  var exec = require('child_process').exec
 
-  var expect = require('chai').expect;
+  var expect = require('chai').expect
 
-  /***************************************************************************
+  /** ************************************************************************
    * Tests
    */
   describe('bin/serve-function-module-template', function () {
-
     it('should work with valid command line parameters', function (done) {
-
-      var command = './bin/serve-function-module-template -x a -y b -z c';
+      var command = './bin/serve-function-module-template -x a -y b -z c'
       exec(command, function (error, stdout, stderr) {
+        expect(error).to.be.null
 
-        expect(error).to.be.null;
+        expect(stderr).to.be.empty
 
-        expect(stderr).to.be.empty;
+        expect(stdout.trim()).to.equal('abc')
 
-        expect(stdout.trim()).to.equal('abc');
-
-        done();
-      });
-    });
+        done()
+      })
+    })
 
     it('should error with invalid command line parameters', function (done) {
-
-      var command = './bin/serve-function-module-template -x a -y b';
+      var command = './bin/serve-function-module-template -x a -y b'
       exec(command, function (error, stdout, stderr) {
+        expect(error).to.be.null
 
-        expect(error).to.be.null;
+        expect(stdout).to.be.empty
 
-        expect(stdout).to.be.empty;
+        expect(stderr).to.not.be.empty
 
-        expect(stderr).to.not.be.empty;
-
-        done();
-      });
-    });
-  });
-})();
+        done()
+      })
+    })
+  })
+})()

@@ -2,28 +2,8 @@
   "env": {
     "node": true
   },
-  "extends": "eslint:recommended",
+  "extends": "standard",
   "rules": {
-    "indent": [
-      2,
-      2,
-      {
-        "SwitchCase": 1
-      }
-    ],
-    "linebreak-style": [
-      2,
-      "unix"
-    ],
-    "quotes": [
-      2,
-      "single"
-    ],
-    "semi": [
-      2,
-      "always"
-    ],
-    "no-extra-semi": 0,
     "valid-jsdoc": [
       2,
       {

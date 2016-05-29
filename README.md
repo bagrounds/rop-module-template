@@ -5,6 +5,8 @@
 [![Coveralls][coveralls-img]][coveralls-url]
 [![Code Climate][codeclimate-img]][codeclimate-url]
 [![Code Climate][codeclimate-issues-img]][codeclimate-issues-url]
+[![js-standard-style][standard-img]][standard-url]
+
 
 Template for a module that will work with serve-function
 
@@ -22,6 +24,10 @@ Clone the module and replace example code.
 ``` bash
   $ npm test
 ```
+
+
+[standard-img]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
+[standard-url]: http://standardjs.com/
 
 [github-img]: https://img.shields.io/github/downloads/bagrounds/serve-function-module-template/total.svg
 [github-url]: https://github.com/bagrounds/serve-function-module-template

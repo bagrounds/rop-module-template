@@ -3,21 +3,21 @@
  *
  * @module serve-function-module-template
  */
-(function(){
-  'use strict';
+;(function () {
+  'use strict'
 
-  /*****************************************************************************
+  /** **************************************************************************
    * imports
    */
-  var typeCheck = require('type-check').typeCheck;
-  var helperModule = require('./lib/helper-module');
+  var typeCheck = require('type-check').typeCheck
+  var helperModule = require('./lib/helper-module')
 
-  var V = require('./lib/values');
+  var V = require('./lib/values')
 
-  /*****************************************************************************
+  /** **************************************************************************
    * exports
    */
-  module.exports = serveFunctionModuleTemplate;
+  module.exports = serveFunctionModuleTemplate
 
   /**
    * This comment describes the callback function accepted by
@@ -31,7 +31,7 @@
   /**
    * This example function illustrates the format required by the serve-function
    * module. The function should accept an options object containing any
-   * function parameters, and a callback to handle the results;
+   * function parameters, and a callback to handle the results
    *
    * @alias module:serve-function-module-template
    * @param {Object} options contains all function parameters
@@ -40,16 +40,15 @@
    * @param {String|Number} options.z anything that can be added
    * @param {callback} callback handles results
    */
-  function serveFunctionModuleTemplate(options, callback){
+  function serveFunctionModuleTemplate (options, callback) {
+    var error = validateOptions(options)
 
-    var error = validateOptions(options);
+    var result = helperModule.add([options.x, options.y, options.z])
 
-    var result = helperModule.add([options.x, options.y, options.z]);
-
-    callback(error, result);
+    callback(error, result)
   }
 
-  /*****************************************************************************
+  /** **************************************************************************
    * Define helper functions
    */
 
@@ -65,19 +64,17 @@
    *
    * @returns {Error|null} any errors due to invalid inputs
    */
-  function validateOptions(options){
+  function validateOptions (options) {
+    var x = options.x
+    var y = options.y
+    var z = options.z
 
-    var x = options.x;
-    var y = options.y;
-    var z = options.z;
+    var xIsValid = typeCheck('String|Number', x)
+    var yIsValid = typeCheck('String|Number', y)
+    var zIsValid = typeCheck('String|Number', z)
 
-    var xIsValid = typeCheck('String|Number',x);
-    var yIsValid = typeCheck('String|Number',y);
-    var zIsValid = typeCheck('String|Number',z);
+    var inputsAreValid = xIsValid && yIsValid && zIsValid
 
-    var inputsAreValid = xIsValid && yIsValid && zIsValid;
-
-    return !inputsAreValid ? new Error(V.INVALID_INPUTS_MESSAGE) : null;
+    return !inputsAreValid ? new Error(V.INVALID_INPUTS_MESSAGE) : null
   }
-
-})();
+})()
