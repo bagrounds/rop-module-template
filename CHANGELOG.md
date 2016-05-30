@@ -29,6 +29,7 @@ Please use: Added, Changed, Deprecated, Removed, Fixed, or Security as labels.
 ##### Added
 * LICENSE.md (MIT)
 * CHANGELOG (this)
+* gh-pages to host jsdocs
 
 ##### Removed
 * unnecessary files
