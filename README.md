@@ -8,12 +8,12 @@
 [![js-standard-style][standard-img]][standard-url]
 
 
-Template for a module that will work with serve-function
+Template for a module that will work with bagrounds/serve-function
 
 ## Installation
 
 ``` bash
-  $ npm install 'github:bagrounds/serve-function-module-template'
+  $ npm install 'bagrounds/serve-function-module-template'
 ```
 
 ## Usage

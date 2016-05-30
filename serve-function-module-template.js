@@ -6,7 +6,7 @@
 ;(function () {
   'use strict'
 
-  /** **************************************************************************
+  /**
    * imports
    */
   var typeCheck = require('type-check').typeCheck
@@ -14,7 +14,7 @@
 
   var V = require('./lib/values')
 
-  /** **************************************************************************
+  /**
    * exports
    */
   module.exports = serveFunctionModuleTemplate
@@ -29,40 +29,40 @@
    */
 
   /**
+   * Define the options object.
+   *
+   * @typedef {Object} options
+   * @property {String|Number} x anything that can be added
+   * @property {String|Number} y anything that can be added
+   * @property {String|Number} z anything that can be added
+   */
+
+  /**
    * This example function illustrates the format required by the serve-function
    * module. The function should accept an options object containing any
    * function parameters, and a callback to handle the results
    *
-   * @alias module:serve-function-module-template
-   * @param {Object} options contains all function parameters
-   * @param {String|Number} options.x anything that can be added
-   * @param {String|Number} options.y anything that can be added
-   * @param {String|Number} options.z anything that can be added
+   * @function serveFunctionModuleTemplate
+   * @alias serve-function-module-template
+   * @param {options} options contains all function parameters
    * @param {callback} callback handles results
    */
   function serveFunctionModuleTemplate (options, callback) {
     var error = validateOptions(options)
 
-    var result = helperModule.add([options.x, options.y, options.z])
+    var result = helperModule([options.x, options.y, options.z])
 
     callback(error, result)
   }
 
-  /** **************************************************************************
-   * Define helper functions
-   */
+  /** Define helper functions */
 
   /**
    * Validate inputs.
    *
-   * @private
+   * @param {options} options contains all function parameters
    *
-   * @param {Object} options contains all function parameters
-   * @param {String|Number} options.x anything that can be added
-   * @param {String|Number} options.y anything that can be added
-   * @param {String|Number} options.z anything that can be added
-   *
-   * @returns {Error|null} any errors due to invalid inputs
+   * @return {Error|null} any errors due to invalid inputs
    */
   function validateOptions (options) {
     var x = options.x
