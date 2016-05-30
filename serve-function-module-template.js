@@ -6,36 +6,12 @@
 ;(function () {
   'use strict'
 
-  /**
-   * imports
-   */
+  /* Imports */
   var typeCheck = require('type-check').typeCheck
-  var helperModule = require('./lib/helper-module')
+  var helper = require('./lib/helper')
 
-  var V = require('./lib/values')
-
-  /**
-   * exports
-   */
+  /* Exports */
   module.exports = serveFunctionModuleTemplate
-
-  /**
-   * This comment describes the callback function accepted by
-   * serveFunctionModuleTemplate.
-   *
-   * @callback callback
-   * @param {Error} error describes any errors that may have occurred
-   * @param {String|Number} result
-   */
-
-  /**
-   * Define the options object.
-   *
-   * @typedef {Object} options
-   * @property {String|Number} x anything that can be added
-   * @property {String|Number} y anything that can be added
-   * @property {String|Number} z anything that can be added
-   */
 
   /**
    * This example function illustrates the format required by the serve-function
@@ -44,37 +20,77 @@
    *
    * @function serveFunctionModuleTemplate
    * @alias serve-function-module-template
+   *
    * @param {options} options contains all function parameters
    * @param {callback} callback handles results
    */
   function serveFunctionModuleTemplate (options, callback) {
-    var error = validateOptions(options)
+    var error = invalidOptions(options)
 
-    var result = helperModule([options.x, options.y, options.z])
+    var result = helper([options.x, options.y, options.z])
 
     callback(error, result)
   }
 
-  /** Define helper functions */
+  /**
+   * Define the options object.
+   *
+   * @typedef {Object} options all function parameters
+   *
+   * @property {String|Number} x anything that can be added
+   * @property {String|Number} y anything that can be added
+   * @property {String|Number} z anything that can be added
+   */
+
+  /**
+   * This comment describes the callback function accepted by
+   * serveFunctionModuleTemplate.
+   *
+   * @callback callback
+   *
+   * @param {Error} error describes any errors that may have occurred
+   * @param {String|Number} result of this function call
+   */
 
   /**
    * Validate inputs.
    *
    * @param {options} options contains all function parameters
    *
-   * @return {Error|null} any errors due to invalid inputs
+   * @return {Error} any errors due to invalid inputs.
    */
-  function validateOptions (options) {
+  function invalidOptions (options) {
     var x = options.x
     var y = options.y
     var z = options.z
 
-    var xIsValid = typeCheck('String|Number', x)
-    var yIsValid = typeCheck('String|Number', y)
-    var zIsValid = typeCheck('String|Number', z)
+    var stringOrNumber = 'String|Number'
+    var message
 
-    var inputsAreValid = xIsValid && yIsValid && zIsValid
+    var xIsValid = typeCheck(stringOrNumber, x)
 
-    return !inputsAreValid ? new Error(V.INVALID_INPUTS_MESSAGE) : null
+    if (!xIsValid) {
+      message = 'invalid x: ' + x
+
+      return new Error(message)
+    }
+
+    var yIsValid = typeCheck(stringOrNumber, y)
+
+    if (!yIsValid) {
+      message = 'invalid y: ' + y
+
+      return new Error(message)
+    }
+
+    var zIsValid = typeCheck(stringOrNumber, z)
+
+    if (!zIsValid) {
+      message = 'invalid z: ' + z
+
+      return new Error(message)
+    }
+
+    return null
   }
 })()

@@ -5,16 +5,12 @@
   /* global describe, it, before */
   'use strict'
 
-  /** ************************************************************************
-   * Imports
-   */
+  /* Imports */
   var expect = require('chai').expect
 
-  var aFunction = require('../serve-function-module-template')
+  var serveFunctionModule = require('../serve-function-module-template')
 
-  /** ************************************************************************
-   * Tests
-   */
+  /* Tests */
   describe('serve-function-module-template', function () {
     var validOptions
     var invalidOptions
@@ -34,7 +30,7 @@
     })
 
     it('should return an error for invalid inputs', function (done) {
-      aFunction(invalidOptions, function (error) {
+      serveFunctionModule(invalidOptions, function (error) {
         expect(error).to.be.an('error')
 
         done()
@@ -42,7 +38,7 @@
     })
 
     it('should not return an error for valid inputs', function (done) {
-      aFunction(validOptions, function (error, result) {
+      serveFunctionModule(validOptions, function (error, result) {
         expect(error).to.be.null
         expect(result).to.be.ok
 
@@ -54,7 +50,7 @@
       var expectedResult = validOptions.x + validOptions.y +
       validOptions.z
 
-      aFunction(validOptions, function (error, result) {
+      serveFunctionModule(validOptions, function (error, result) {
         expect(error).to.not.be.ok
         expect(result).to.equal(expectedResult)
 

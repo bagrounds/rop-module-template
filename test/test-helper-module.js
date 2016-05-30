@@ -1,24 +1,20 @@
 /**
- * Tests for helper-module
+ * Tests for helper
  */
 ;(function () {
   /* global describe, it */
   'use strict'
 
-  /**
-   * Imports
-   */
+  /* Imports */
   var expect = require('chai').expect
 
-  var helperModule = require('../lib/helper-module')
+  var helper = require('../lib/helper')
 
-  /**
-   * Tests
-   */
-  describe('helper-module', function () {
+  /* Tests */
+  describe('helper', function () {
     describe('add', function () {
       it('should add numbers', function () {
-        var result = helperModule([1, 2, 3])
+        var result = helper([1, 2, 3])
 
         var expectedResult = 6
 
@@ -26,7 +22,7 @@
       })
 
       it('should add strings', function () {
-        var result = helperModule(['a', 'b', 'c'])
+        var result = helper(['a', 'b', 'c'])
 
         var expectedResult = 'abc'
 
