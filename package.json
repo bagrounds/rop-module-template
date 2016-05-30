@@ -5,20 +5,18 @@
   "private": true,
   "scripts": {
     "start": "node bin/aFunction",
-    "pretest": "npm run standard && npm run format",
+    "pretest": "npm run lint",
     "test": "_mocha",
     "predocument": "rm -rf docs",
     "document": "jsdoc --destination docs -c .jsdoc.json -r",
     "precoverage": "rm -rf coverage",
     "coverage": "istanbul cover _mocha",
     "postcoverage": "codeclimate-test-reporter < coverage/lcov.info",
-    "build": "npm run lint && npm run coverage && npm run document",
-    "lint": "eslint *.js lib/**/*.js test/**/*.js",
-    "standard": "standard",
-    "format": "standard-format -w"
+    "build": "npm run coverage && npm run document",
+    "prelint": "standard-format -w",
+    "lint": "eslint --ignore-path .gitignore ."
   },
   "dependencies": {
-    "argparse": "^1.0.7",
     "type-check": "^0.3.2"
   },
   "devDependencies": {
@@ -32,7 +30,22 @@
     "jsdoc": "^3.4.0",
     "mocha": "^2.4.5",
     "mocha-lcov-reporter": "^1.2.0",
-    "standard": "^7.1.1",
     "standard-format": "^2.2.1"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "extends": "standard",
+    "rules": {
+      "valid-jsdoc": [
+        2,
+        {
+          "requireReturn": false,
+          "requireReturnType": false
+        }
+      ]
+
+    }
   }
 }
