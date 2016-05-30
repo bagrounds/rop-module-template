@@ -20,11 +20,17 @@ Template for a module that will work with bagrounds/serve-function
 Clone the module and replace example code.
 
 
-## Run Tests
+## Tests
 ``` bash
   $ npm test
 ```
 
+
+## License
+[MIT][license-url]
+
+
+[license-url]: LICENSE
 
 [standard-img]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
 [standard-url]: http://standardjs.com/
