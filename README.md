@@ -16,6 +16,9 @@ Template for a module that will work with bagrounds/serve-function
   $ npm install 'bagrounds/serve-function-module-template'
 ```
 
+## [Documentation][gh-pages-url]
+
+
 ## Usage
 Clone the module and replace example code.
 
@@ -49,3 +52,5 @@ Clone the module and replace example code.
 
 [codeclimate-issues-img]: https://codeclimate.com/github/bagrounds/serve-function-module-template/badges/issue_count.svg
 [codeclimate-issues-url]: https://codeclimate.com/github/bagrounds/serve-function-module-template/issues
+
+[gh-pages-url]: http://bagrounds.github.io/serve-function-module-template
