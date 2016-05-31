@@ -15,7 +15,7 @@
     "predocument": "npm test && rm -rf docs",
     "document": "jsdoc --destination docs -c .jsdoc.json -r",
     "precoverage": "rm -rf coverage",
-    "coverage": "istanbul cover _mocha",
+    "coverage": "istanbul cover _mocha && cat ./coverage/lcov.info | coveralls",
     "postcoverage": "codeclimate-test-reporter < coverage/lcov.info",
     "build": "npm run coverage && npm run document",
     "prelint": "standard-format -w",
@@ -28,6 +28,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "codeclimate-test-reporter": "^0.3.1",
+    "coveralls": "^2.11.9",
     "eslint": "^2.9.0",
     "eslint-config-standard": "^5.3.1",
     "gh-pages-deploy": "^0.4.2",
