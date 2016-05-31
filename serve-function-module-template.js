@@ -60,37 +60,20 @@
    * @return {Error} any errors due to invalid inputs.
    */
   function invalidOptions (options) {
-    var x = options.x
-    var y = options.y
-    var z = options.z
-
     var stringOrNumber = 'String|Number'
-    var message
 
-    var xIsValid = typeCheck(stringOrNumber, x)
+    var xyz = ['x', 'y', 'z']
 
-    if (!xIsValid) {
-      message = 'invalid x: ' + x
+    var xyzError = xyz.reduce(function (error, param) {
+      if (error) return error
 
-      return new Error(message)
-    }
+      if (!typeCheck(stringOrNumber, options[param])) {
+        error = new Error('invalid ' + param + ': ' + options[param])
+      }
 
-    var yIsValid = typeCheck(stringOrNumber, y)
+      return error
+    }, null)
 
-    if (!yIsValid) {
-      message = 'invalid y: ' + y
-
-      return new Error(message)
-    }
-
-    var zIsValid = typeCheck(stringOrNumber, z)
-
-    if (!zIsValid) {
-      message = 'invalid z: ' + z
-
-      return new Error(message)
-    }
-
-    return null
+    return xyzError
   }
 })()

@@ -303,6 +303,30 @@
         "requireReturn": false,
         "requireReturnType": false
       }
+    ],
+    "complexity": [
+      2,
+      {
+        "max": 10
+      }
+    ],
+    "max-len": 2,
+    "max-depth": 2,
+    "max-params": 2,
+    "max-statements": [
+      2,
+      {
+        "max": 10
+      },
+      {
+        "ignoreTopLevelFunctions": true
+      }
+    ],
+    "max-nested-callbacks": [
+      2,
+      {
+        "max": 5
+      }
     ]
   }
 }

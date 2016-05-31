@@ -26,39 +26,43 @@
     invalidY.y = []
     invalidZ.z = {}
 
-    function itShouldError (forString, options) {
-      it('should return an error for ' + forString, function (done) {
-        serveFunctionModule(options, function (error) {
-          expect(error).to.be.an('error')
+    describe('inputs', function () {
+      itShouldError('invalid x', invalidX)
+      itShouldError('invalid y', invalidY)
+      itShouldError('invalid z', invalidZ)
+
+      it('should not return an error for valid inputs', function (done) {
+        serveFunctionModule(validOptions, function (error, result) {
+          expect(error).to.be.null
+          expect(result).to.be.ok
 
           done()
         })
       })
-    }
-
-    itShouldError('invalid x', invalidX)
-    itShouldError('invalid y', invalidY)
-    itShouldError('invalid z', invalidZ)
-
-    it('should not return an error for valid inputs', function (done) {
-      serveFunctionModule(validOptions, function (error, result) {
-        expect(error).to.be.null
-        expect(result).to.be.ok
-
-        done()
-      })
     })
 
-    it('should return the sum of its inputs', function (done) {
-      var expectedResult = validOptions.x + validOptions.y +
-      validOptions.z
+    describe('output', function () {
+      it('should return the sum of its inputs', function (done) {
+        var expectedResult = validOptions.x + validOptions.y +
+        validOptions.z
 
-      serveFunctionModule(validOptions, function (error, result) {
-        expect(error).to.not.be.ok
-        expect(result).to.equal(expectedResult)
+        serveFunctionModule(validOptions, function (error, result) {
+          expect(error).to.not.be.ok
+          expect(result).to.equal(expectedResult)
 
-        done()
+          done()
+        })
       })
     })
   })
+
+  function itShouldError (forString, options) {
+    it('should return an error for ' + forString, function (done) {
+      serveFunctionModule(options, function (error) {
+        expect(error).to.be.an('error')
+
+        done()
+      })
+    })
+  }
 })()
