@@ -3,7 +3,6 @@
     "node": true,
     "mocha": true
   },
-  "extends": "standard",
   "rules": {
     "accessor-pairs": 2,
     "arrow-spacing": [
@@ -298,19 +297,6 @@
       2,
       "never"
     ],
-    "standard/object-curly-even-spacing": [
-      2,
-      "either"
-    ],
-    "standard/array-bracket-even-spacing": [
-      2,
-      "either"
-    ],
-    "standard/computed-property-even-spacing": [
-      2,
-      "even"
-    ],
-    "promise/param-names": 2,
     "valid-jsdoc": [
       2,
       {
