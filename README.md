@@ -29,9 +29,13 @@ Clone the module and replace example code.
 ```
 
 
+## [Changelog][changelog-url]
+
 ## License
 [MIT][license-url]
 
+
+[changelog-url]: CHANGELOG.md
 
 [license-url]: LICENSE
 
