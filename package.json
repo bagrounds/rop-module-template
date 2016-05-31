@@ -23,6 +23,7 @@
     "gh-pages": "gh-pages-deploy"
   },
   "dependencies": {
+    "lodash": "^4.13.1",
     "type-check": "^0.3.2"
   },
   "devDependencies": {
