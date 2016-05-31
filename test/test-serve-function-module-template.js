@@ -2,7 +2,7 @@
  * Tests for serve-function-module-template
  */
 ;(function () {
-  /* global describe, it, before */
+  /* global describe, it */
   'use strict'
 
   /* Imports */
@@ -13,52 +13,32 @@
 
   /* Tests */
   describe('serve-function-module-template', function () {
-    var validOptions
-    var invalidX
-    var invalidY
-    var invalidZ
+    var validOptions = {
+      x: 'valid',
+      y: 'also valid',
+      z: 'this is a invalid input'
+    }
+    var invalidX = _.cloneDeep(validOptions)
+    var invalidY = _.cloneDeep(validOptions)
+    var invalidZ = _.cloneDeep(validOptions)
 
-    before(function () {
-      validOptions = {
-        x: 'valid',
-        y: 'also valid',
-        z: 'this is a invalid input'
-      }
+    invalidX.x = null
+    invalidY.y = []
+    invalidZ.z = {}
 
-      invalidX = _.cloneDeep(validOptions)
-      invalidY = _.cloneDeep(validOptions)
-      invalidZ = _.cloneDeep(validOptions)
+    function itShouldError (forString, options) {
+      it('should return an error for ' + forString, function (done) {
+        serveFunctionModule(options, function (error) {
+          expect(error).to.be.an('error')
 
-      invalidX.x = null
-
-      invalidY.y = []
-
-      invalidZ.z = {}
-    })
-
-    it('should return an error for invalid x', function (done) {
-      serveFunctionModule(invalidX, function (error) {
-        expect(error).to.be.an('error')
-
-        done()
+          done()
+        })
       })
-    })
+    }
 
-    it('should return an error for invalid y', function (done) {
-      serveFunctionModule(invalidY, function (error) {
-        expect(error).to.be.an('error')
-
-        done()
-      })
-    })
-
-    it('should return an error for invalid z', function (done) {
-      serveFunctionModule(invalidZ, function (error) {
-        expect(error).to.be.an('error')
-
-        done()
-      })
-    })
+    itShouldError('invalid x', invalidX)
+    itShouldError('invalid y', invalidY)
+    itShouldError('invalid z', invalidZ)
 
     it('should not return an error for valid inputs', function (done) {
       serveFunctionModule(validOptions, function (error, result) {
