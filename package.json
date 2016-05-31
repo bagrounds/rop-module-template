@@ -19,7 +19,7 @@
     "postcoverage": "codeclimate-test-reporter < coverage/lcov.info",
     "build": "npm run coverage && npm run document",
     "prelint": "standard-format -w",
-    "lint": "eslint .",
+    "lint": "eslint --ignore-path .gitignore .",
     "gh-pages": "gh-pages-deploy"
   },
   "dependencies": {
@@ -32,8 +32,6 @@
     "coveralls": "^2.11.9",
     "eslint": "^2.9.0",
     "eslint-config-standard": "^5.3.1",
-    "eslint-plugin-promise": "^1.3.1",
-    "eslint-plugin-standard": "^1.3.2",
     "gh-pages-deploy": "^0.4.2",
     "istanbul": "^0.4.3",
     "jsdoc": "^3.4.0",
