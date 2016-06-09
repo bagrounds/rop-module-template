@@ -6,7 +6,7 @@ project adheres to [Semantic Versioning](http://semver.org/).
 Please use: Added, Changed, Deprecated, Removed, Fixed, or Security as labels.
 <br>
 
-#### 0.3.1 - (Unreleased)
+#### 0.4.0 - (Unreleased)
 ##### Added
 * ...
 
@@ -24,6 +24,24 @@ Please use: Added, Changed, Deprecated, Removed, Fixed, or Security as labels.
 
 ##### Security
 * ...
+
+#### 0.3.1 - (2016-06-09)
+##### Added
+* package.json fields:
+ * author
+ * bugs
+ * homepage
+ * directories
+ * description
+
+##### Changed
+* test script to use mocha instead of _mocha
+
+##### Removed
+* package.json field: private
+* npm scripts:
+ * start
+ * build
 
 #### 0.3.0 (2016-05-29)
 ##### Added
