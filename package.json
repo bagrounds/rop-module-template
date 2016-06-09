@@ -1,6 +1,6 @@
 {
   "name": "serve-function-module-template",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "A template for a function servable with bagrounds/serve-function.",
   "main": "serve-function-module-template.js",
   "directories": {
