@@ -25,7 +25,7 @@ Please use: Added, Changed, Deprecated, Removed, Fixed, or Security as labels.
 ##### Security
 * ...
 
-#### 0.3.1 - (2016-06-09)
+#### 0.3.4 - (2016-06-09)
 ##### Added
 * package.json fields:
  * author
